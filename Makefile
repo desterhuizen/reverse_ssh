@@ -30,15 +30,15 @@ debug: .generate_keys
 
 release: .generate_keys
 	# Full list of Platforms and architectures: https://gist.github.com/zfarbp/121a76d5a3fde562c3955a606a9d6fcc
-	GOOS=linux GOARCH=amd64 go build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/client_x64 ./cmd/client
-	GOOS=linux GOARCH=386 go build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/client_x86 ./cmd/client
-	GOOS=linux GOARCH=arm64 go build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/client_arm64 ./cmd/client
-	GOOS=linux GOARCH=arm go build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/client_arm ./cmd/client
-	GOOS=windows GOARCH=amd64 go build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -buildmode=exe -o bin/client_x64.exe ./cmd/client
-	GOOS=windows GOARCH=386 go build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/client_x86.exe -buildmode=exe ./cmd/client
-	GOOS=windows GOARCH=arm64 go build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/client_arm64.exe -buildmode=exe ./cmd/client
-	GOOS=darwin GOARCH=amd64 go build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/darwin_client_x64.exe ./cmd/client
-	GOOS=darwin GOARCH=arm64 go build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/darwin_client_arm64 ./cmd/client
+	GOOS=linux GOARCH=amd64 garble build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/client_x64 ./cmd/client
+	GOOS=linux GOARCH=386 garble build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/client_x86 ./cmd/client
+	GOOS=linux GOARCH=arm64 garble build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/client_arm64 ./cmd/client
+	GOOS=linux GOARCH=arm garble build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/client_arm ./cmd/client
+	GOOS=windows GOARCH=amd64 garble build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -buildmode=exe -o bin/client_x64.exe ./cmd/client
+	GOOS=windows GOARCH=386 garble build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/client_x86.exe -buildmode=exe ./cmd/client
+	GOOS=windows GOARCH=arm64 garble build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/client_arm64.exe -buildmode=exe ./cmd/client
+	GOOS=darwin GOARCH=amd64 garble build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/darwin_client_x64.exe ./cmd/client
+	GOOS=darwin GOARCH=arm64 garble build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin/darwin_client_arm64 ./cmd/client
 
 client: .generate_keys
 	go build $(BUILD_FLAGS) -ldflags="$(LDFLAGS_RELEASE)" -o bin ./cmd/client
